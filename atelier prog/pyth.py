@@ -25,7 +25,7 @@ while start:
     print(" Sélectionnez votre choix : \n")
     print("choix 1: lettre verte \nchoix 2: lettre ecopli\nchoix 3: lettre eco outre-mer\nchoix 4:cécogramme")
     choix = input("")
-    poids = int(input("Veuillez pesez votre lettre : "))
+    poids = int(input("Veuillez peser votre lettre : "))
     prix = affranchissement(choix,poids)
     error = True
     while error:
