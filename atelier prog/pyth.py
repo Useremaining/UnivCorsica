@@ -17,7 +17,9 @@ def affranchissement(choix, poids):
             prix = 10.50
         else:
             prix = "string"
-    if choix == 2
+    if choix == 2:
+        if poids <=20:
+            prix = 1.43
     return prix
 
 start = True
