@@ -20,6 +20,7 @@ def affranchissement(choix, poids):
     if choix == 2:
         if poids <=20:
             prix = 1.43
+            """ code pas fini, même chose et grosse flemme"""
     return prix
 
 start = True
