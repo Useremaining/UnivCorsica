@@ -155,12 +155,15 @@ test_val_max()
 """ définition de l'indice de la valeur maximale d'une liste d'entiers"""
 
 def ind_max(liste:list)->int:
-    val_max = 0
-    ind_max = None
-    for i in range(len(liste)):
-        if val_max < liste[i]:
-            val_max = liste[i]
-            ind_max = i
+    if len(liste)!=0:
+        val_max = liste[0]
+        ind_max = 0
+        for i in range(len(liste)):
+            if val_max < liste[i]:
+                val_max = liste[i]
+                ind_max = i
+    else:
+        ind_max = None
     return ind_max
 
 def test_ind_max():
