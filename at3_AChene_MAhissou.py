@@ -26,7 +26,7 @@ def start_with(words:str,prefix:str)->bool:
     """
     if words:
         if prefix or len(prefix)>=len(words):
-            if prefix in words[0:len(prefix)]:
+            if prefix in words[:len(prefix)]:
                 result = True
                 
             else:
@@ -67,8 +67,27 @@ def list_end_with(lst_words:list,suffix:str)->list:
         lst_wrd_sfx = ["Error : no word"]
     return lst_wrd_sfx
 
+def list_start_with(lst_words:list,prefix:str)->list:
+    if lst_words:
+        if prefix:
+            lst_wrd_pfx = []
+            for elt in lst_words:
+                if start_with(elt, prefix):
+                    lst_wrd_pfx.append(elt)
+        else:
+            lst_wrd_pfx = [" Error : no prefix "]
+    else:
+        lst_wrd_pfx = ["Error : no word "]
+    return lst_wrd_pfx
 
-        
+def dictionnary(file)->list:
+    open_file = open("littre.txt","r")
+    lst_file = []
+    c = open_file.readline()
+    while c!= "":
+        lst_file.append(c)
+        c = open_file.readline()
+    return lst_file
 
 def main():
     """
@@ -91,15 +110,21 @@ def main():
     print("Test avec Bonjour et bon : ", start_with("bonjour","bon"))
     print("Test avec Bonjour et bin : ", start_with("bonjour","bin"))
     print("-----------------------------")
-    print("TEST START WITH")
+    print("TEST END WITH")
     print("void : ",end_with("","zeze"))
     print("Test avec Bonjour et our : ", end_with("bonjour","our"))
     print("Test avec Bonjour et por : ", end_with("bonjour","por"))
     print("-----------------------------")
-    print("TEST START WITH")
+    print("TEST LIST END WITH")
     print("void : ",list_end_with([],""))
     print("Test previous list with our : ", list_end_with(lst_mot,"our"))
     print("Test previous list with por : ", list_end_with(lst_mot,"por"))
+    print("-----------------------------")
+    print("TEST LIST START WITH WITH")
+    print("void : ",list_end_with([],""))
+    print("Test previous list with our : ", list_start_with(lst_mot,"jou"))
+    print("Test previous list with por : ", list_start_with(lst_mot,"por"))
+
 
 if __name__ == "__main__":
     print("Le script est exécuté directement.")
