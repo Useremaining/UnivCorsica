@@ -43,24 +43,28 @@ def runGame():
     start = True
     pendu = ["","|______","|/ \ ","| T ","| O ","|---] "]
     error = 0
+    print(word_rand)
     while start:
         letter = input("Veuillez saisir une lettre : ")
-        if letter in word_rand and word_rand.index(letter) not in find_word:
+        if letter.upper() in word_rand.upper() and word_rand.index(letter.upper()) not in find_word:
             for i in range(len(word_rand)):
-                if letter == word_rand[i]:
+                if letter.upper() == word_rand[i].upper():
                     find_word.append(i)
+                    print(find_word)
         else:
             error += 1
         print("Etat du mot : ",outPutStr(word_rand, find_word))
         print("Etat du pendu : ")
-        for i in range(error):
+        for i in range(error,0,-1):
             print(pendu[i])
         if len(find_word)==len(word_rand):
             print("VICTOIRE")
             start = False
         elif error == 5:
             for i in range(error):
+                print("PERDU")
                 print(pendu[i])
+                start = False
     
                  
 def main():
@@ -74,7 +78,8 @@ def main():
     print("TEST OUTPUTSTR")
     print("Test avec bonjour, [0,1,5] : ", outPutStr("bonjour",[0,1,5]))
     print("Test avec chouette, [2,3,21] : ", outPutStr("chouette",[2,3,21]))
-
+    print("-----------------------------")
+    runGame()
 
 if __name__ == "__main__":
     print("Le script est exécuté directement.")
