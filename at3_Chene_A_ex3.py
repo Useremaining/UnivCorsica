@@ -30,11 +30,19 @@ def outPutStr(word:str,l_list:list[int])->str:
 
 def runGame():
     list_word = []
+    difficulty = input("Tapez : easy, normal ou hard pour choisir le niveau de difficulté")
     with open("./pli07.txt","r") as f:
         for line in f:
             word_l = len(line)-1
-            if 4 <= word_l:
-                list_word.append(line)
+            if difficulty == "easy":
+                if 4 <= word_l <= 6:
+                    list_word.append(line)
+            elif difficulty == "normal":
+                if 7 <= word_l <= 8:
+                    list_word.append(line)
+            else:
+                if 9<= word_l:
+                    list_word.append(line)
     #Select random word in list
     word_rand = list_word[rand.randint(0,len(list_word)-1)]
     #create list with index in it
